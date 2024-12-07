@@ -14,28 +14,20 @@ public class Order implements Serializable {
     private static final List<String> ORDER_STATUS = List.of("new", "pending", "confirmed", "shipped", "delivered");
 
 
-    @JsonProperty("orderId")
     private String orderId;
 
-    @JsonProperty("customerId")
     private String customerId;
 
-    @JsonProperty("orderDate")
     private String orderDate;
 
-    @JsonProperty("items")
     private List<Item> items;
 
-    @JsonProperty("totalAmount")
     private Double totalAmount;
 
-    @JsonProperty("currency")
     private String currency;
 
-    @JsonProperty("orderStatus")
     private String orderStatus;
 
-    @JsonProperty("numOfItems")
     private Integer numOfItems;
 
     public Order(String orderId,Integer numOfItems) {

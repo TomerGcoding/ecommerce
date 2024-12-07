@@ -1,5 +1,7 @@
 package eda.ex1.orderservice.consumer;
 
+import eda.ex1.dtos.OrderDTO;
+import eda.ex1.orderservice.mapper.DTOMapper;
 import eda.ex1.orderservice.model.Order;
 import eda.ex1.orderservice.repository.OrdersRepository;
 import org.slf4j.Logger;
@@ -20,26 +22,27 @@ public class OrderConsumer {
     }
 
     @RabbitListener(queues = "#{rabbitMQConfig.ORDER_QUEUE}")
-    public void receiveOrder(Order order) {
+    public void receiveOrder(OrderDTO orderDTO) {
         // Log the received order
-        logger.info("Received Order: {}", order.getOrderId());
+        logger.info("Received Order: {}", orderDTO.getOrderId());
 
         // Calculate shipping cost (2% of total amount)
-        double shippingCost = order.getTotalAmount() * 0.02;
+        double shippingCost = orderDTO.getTotalAmount() * 0.02;
         logger.info("Shipping Cost for Order {}: {}",
-                order.getOrderId(),
-                String.format("%.2f %s", shippingCost, order.getCurrency())
+                orderDTO.getOrderId(),
+                String.format("%.2f %s", shippingCost, orderDTO.getCurrency())
         );
 
+        Order order = DTOMapper.mapOrderDTOToOrder(orderDTO);
         // Store the order in the repository
         ordersRepository.addOrder(order);
 
         // Log additional order details
         logger.info("Order Details - Customer: {}, Total Items: {}, Total Amount: {} {}",
-                order.getCustomerId(),
-                order.getNumOfItems(),
-                order.getTotalAmount(),
-                order.getCurrency()
+                orderDTO.getCustomerId(),
+                orderDTO.getNumOfItems(),
+                orderDTO.getTotalAmount(),
+                orderDTO.getCurrency()
         );
     }
 }

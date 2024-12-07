@@ -13,13 +13,10 @@ public class Item implements Serializable {
     private static final List<Integer> ITEM_QUANTITY = List.of(1, 2, 3, 4, 5);
     private static final List<Double> ITEM_PRICE = List.of(9.99,19.99,29.99,39.99,49.99,59.99);
 
-    @JsonProperty("itemId")
     private String itemId;
 
-    @JsonProperty("itemQuantity")
     private Integer itemQuantity;
 
-    @JsonProperty("itemPrice")
     private Double itemPrice;
 
     public Item() {
