@@ -8,7 +8,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Repository
 public class OrdersRepository {
 
-    private final ConcurrentHashMap<String, Order> orders = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Order> orders = new ConcurrentHashMap<>();
+
 
     public Order getOrder(String orderId) {
         return orders.get(orderId);
@@ -29,6 +30,5 @@ public class OrdersRepository {
     public boolean orderExists(String orderId) {
         return orders.containsKey(orderId);
     }
-
 
 }

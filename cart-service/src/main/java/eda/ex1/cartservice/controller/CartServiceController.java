@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CartServiceController {
 
-    @Autowired
     private final OrderPublisher orderPublisher;
 
     public CartServiceController(OrderPublisher orderPublisher) {

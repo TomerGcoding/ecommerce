@@ -9,6 +9,9 @@ public class ItemDTO implements Serializable {
 
     private Double itemPrice;
 
+
+    public ItemDTO() {
+    }
     public ItemDTO(String itemId, Integer itemQuantity, Double itemPrice) {
         this.itemId = itemId;
         this.itemQuantity = itemQuantity;
@@ -25,5 +28,14 @@ public class ItemDTO implements Serializable {
 
     public Double getItemPrice() {
         return itemPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemDTO{" +
+                "itemId='" + itemId + '\'' +
+                ", itemQuantity=" + itemQuantity +
+                ", itemPrice=" + itemPrice +
+                '}';
     }
 }

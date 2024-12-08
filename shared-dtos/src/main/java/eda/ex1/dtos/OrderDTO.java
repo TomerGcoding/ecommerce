@@ -3,6 +3,7 @@ package eda.ex1.dtos;
 import java.io.Serializable;
 import java.util.List;
 
+
 public class OrderDTO implements Serializable {
     private String orderId;
 
@@ -19,6 +20,9 @@ public class OrderDTO implements Serializable {
     private String orderStatus;
 
     private Integer numOfItems;
+
+    public OrderDTO() {
+    }
 
     public OrderDTO(String orderId,
                     String customerId,
@@ -68,5 +72,19 @@ public class OrderDTO implements Serializable {
 
     public Integer getNumOfItems() {
         return numOfItems;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                "orderId='" + orderId + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", items=" + items +
+                ", totalAmount=" + totalAmount +
+                ", currency='" + currency + '\'' +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", numOfItems=" + numOfItems +
+                '}';
     }
 }
