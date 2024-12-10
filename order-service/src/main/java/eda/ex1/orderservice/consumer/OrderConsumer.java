@@ -25,6 +25,7 @@ public class OrderConsumer {
         logger.info("Received order from RabbitMQ: " + order.toString());
         if(order.getOrderStatus().equals("new")) {
             logger.info("Order status is new, adding order to repository");
+            ordersRepository.addOrder(DTOMapper.mapOrderDTOToOrder(order));
             logger.info("Order added to repository: " + order.toString());
         }
     }

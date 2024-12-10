@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  order-service:
+    image: order-service:latest
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081" # Optional: Expose order-service for monitoring or debugging
+    environment:
+      - SPRING_RABBITMQ_HOST=rabbitmq
+      - SPRING_RABBITMQ_PORT=5672
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true # Use the same shared external network

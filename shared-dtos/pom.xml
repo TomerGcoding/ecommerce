@@ -9,6 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>eda.ex1</groupId>
     <artifactId>shared-dtos</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
