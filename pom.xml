@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>shared-dtos</module>
+        <module>cart-service</module>
+        <module>order-service</module>
     </modules>
 
     <properties>
