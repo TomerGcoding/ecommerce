@@ -18,7 +18,7 @@ public class OrderServiceController {
 
     @GetMapping("/order-details")
     public ResponseEntity<?> getOrderDetails(@RequestParam String orderId) {
-        if(orderId == null) {
+        if(orderId == null || orderId.isEmpty()) {
             return ResponseEntity.badRequest().body("Order Id is required");
         }
         if (ordersRepository.orderExists(orderId)) {

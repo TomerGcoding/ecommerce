@@ -9,7 +9,6 @@ public class ItemDTO implements Serializable {
 
     private Double itemPrice;
 
-
     public ItemDTO() {
     }
     public ItemDTO(String itemId, Integer itemQuantity, Double itemPrice) {
