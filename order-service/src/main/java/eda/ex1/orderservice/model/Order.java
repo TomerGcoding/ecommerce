@@ -10,7 +10,6 @@ public class Order {
     private Double totalAmount;
     private String currency;
     private String orderStatus;
-    private Integer numOfItems;
     private Double shippingCost;
 
     public Order(String orderId,
@@ -19,8 +18,7 @@ public class Order {
                  List<Item> items,
                  Double totalAmount,
                  String currency,
-                 String orderStatus,
-                 Integer numOfItems) {
+                 String orderStatus) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.orderDate = orderDate;
@@ -28,7 +26,6 @@ public class Order {
         this.totalAmount = totalAmount;
         this.currency = currency;
         this.orderStatus = orderStatus;
-        this.numOfItems = numOfItems;
         this.shippingCost = 0.02 * totalAmount;
     }
 
@@ -58,10 +55,6 @@ public class Order {
 
     public String getOrderStatus() {
         return orderStatus;
-    }
-
-    public Integer getNumOfItems() {
-        return numOfItems;
     }
 
     public Double getShippingCost() {

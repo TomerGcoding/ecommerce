@@ -13,6 +13,6 @@ public class DTOMapper {
         List<Item> items = orderDTO.getItems().stream()
                 .map(itemDTO -> new Item(itemDTO.getItemId(), itemDTO.getItemQuantity(), itemDTO.getItemPrice()))
                 .collect(Collectors.toList());
-        return new Order(orderDTO.getOrderId(), orderDTO.getCustomerId(), orderDTO.getOrderDate(), items, orderDTO.getTotalAmount(), orderDTO.getCurrency(), orderDTO.getOrderStatus(), orderDTO.getNumOfItems());
+        return new Order(orderDTO.getOrderId(), orderDTO.getCustomerId(), orderDTO.getOrderDate(), items, orderDTO.getTotalAmount(), orderDTO.getCurrency(), orderDTO.getOrderStatus());
     }
 }
