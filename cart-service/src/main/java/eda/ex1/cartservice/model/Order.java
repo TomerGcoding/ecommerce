@@ -11,7 +11,7 @@ public class Order implements Serializable {
     private static final String CUSTOMER_ID_PREFIX = "CUST-";
     private static String CUSTOMER_ID_SUFFIX = "00001";
     private static final List<String> CURRENCIES = List.of("USD", "EUR", "GBP", "ILS");
-    private static final List<String> ORDER_STATUS = List.of("new", "pending", "confirmed", "shipped", "delivered");
+    public static final List<String> ORDER_STATUS = List.of("new", "pending", "confirmed", "shipped", "delivered");
 
 
     private String orderId;
